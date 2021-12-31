@@ -1,0 +1,14 @@
+    <command name="getVolStrom" protocmd="getaddr">
+      <addr>0C24</addr>
+      <len>2</len>
+      <unit>VS</unit>
+      <description>Ermittle den Volumenstrom l/h des Heizkreises</description>
+    </command>
+
+     <command name="getOelverbrauch" protocmd="getaddr">
+      <addr>7574</addr>
+      <len>4</len>
+      <unit>COL</unit>
+      <description>Ermittle den Oelverbrauch kumuliert</description>
+      <device ID="2053"/>
+    </command>
