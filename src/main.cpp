@@ -17,7 +17,7 @@ void setup() {
 
   outRealTemp.setCallback(tempCallbackHandler);
   outMeanTemp.setCallback(tempCallbackHandler);
-  
+
   flowM2RealTemp.setCallback(tempCallbackHandler);
   flowM2TargetTemp.setCallback(tempCallbackHandler);
   flowM2NormalSetTemp.setCallback(unsignedByteCallbackHandler);
@@ -40,6 +40,8 @@ void setup() {
 
   tankRealTemp.setCallback(tempCallbackHandler);
   tankSetTemp.setCallback(unsignedByteCallbackHandler);
+  tankCircMode.setCallback(unsignedByteCallbackHandler);
+  tankCircMode2.setCallback(unsignedByteCallbackHandler);
 
   setupWiFi();
   setupMQTT();
@@ -49,9 +51,9 @@ void setup() {
 void loop() {
   static unsigned long lastMillis = 0;
   loopMQTT();
-  if (millis() - lastMillis > 60 * 1000UL)   { // read all values every 60 seconds
+  if (millis() - lastMillis > 60 * 1000UL) { // read all values every 60 seconds
     lastMillis = millis();
-    VitoWiFi.readAll(); 
+    VitoWiFi.readAll();
   }
   VitoWiFi.loop();
 }

@@ -35,3 +35,5 @@ DPMode flowM3PartyMode("flowM3PMode", "M2", 0x4303, true);
 // Watertank
 DPTemp tankRealTemp("tankRTmp", "watertank", 0x0812); // Temperatura rzeczywista w CWU
 DPTempS tankSetTemp("tankSTmp", "watertank", 0x6300, true); // Temperatura ustawiona w CWU
+DPMode tankCircMode("tankCircMode", "watertank", 0x6515, true); // Cyrkulacja pompy CWU
+DPMode tankCircMode2("tankCircMod2", "watertank", 0x0846, true); // Cyrkulacja pompy CWU

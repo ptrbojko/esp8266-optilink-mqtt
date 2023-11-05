@@ -37,3 +37,5 @@ extern DPMode flowM3PartyMode;
 // watertank
 extern DPTemp tankRealTemp; // Temperatura rzeczywista w CWU
 extern DPTempS tankSetTemp; // Temperatura ustawiona w CWU
+extern DPMode tankCircMode; // Cyrkulacja pompy CWU
+extern DPMode tankCircMode2; // Cyrkulacja pompy CWU

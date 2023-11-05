@@ -71,13 +71,23 @@ void setFlowM3PModeCallback(byte* payload, unsigned int length) {
     VitoWiFi.writeDatapoint(flowM3PartyMode, DPValue(value));
 }
 
+void setTankCircModeCallback(byte* payload, unsigned int length) {
+    uint8_t value = atoi((char*)payload);
+    VitoWiFi.writeDatapoint(tankCircMode, DPValue(value));
+}
+
+void setTankCircMode2Callback(byte* payload, unsigned int length) {
+    uint8_t value = atoi((char*)payload);
+    VitoWiFi.writeDatapoint(tankCircMode2, DPValue(value));
+}
+
 struct CallbackMapProto {
     IDatapoint* datapoint;
     const char* postfix;
     void (*callback)(byte* payload, unsigned int length);
 };
 
-const int CALLBACKS_COUNT = 13;
+const int CALLBACKS_COUNT = 15;
 
 CallbackMapProto CALLBACKS_PROTO[CALLBACKS_COUNT] = {
     {&tankSetTemp, SET_POSTFIX, setTankSetTempCallback},
@@ -92,7 +102,9 @@ CallbackMapProto CALLBACKS_PROTO[CALLBACKS_COUNT] = {
     {&flowM2EcoMode, SET_POSTFIX, setFlowM2EModeCallback},
     {&flowM2PartyMode, SET_POSTFIX, setFlowM2PModeCallback},
     {&flowM3EcoMode, SET_POSTFIX, setFlowM3EModeCallback},
-    {&flowM3PartyMode, SET_POSTFIX, setFlowM3PModeCallback}
+    {&flowM3PartyMode, SET_POSTFIX, setFlowM3PModeCallback},
+    {&tankCircMode, SET_POSTFIX, setTankCircModeCallback},
+    {&tankCircMode2, SET_POSTFIX, setTankCircMode2Callback}
 };
 
 char checkedTopic[60];

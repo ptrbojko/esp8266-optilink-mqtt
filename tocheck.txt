@@ -12,3 +12,67 @@
       <description>Ermittle den Oelverbrauch kumuliert</description>
       <device ID="2053"/>
     </command>
+
+
+<command name="getWWUWPNachlauf" protocmd="getaddr">
+      <addr>6762</addr>
+      <len>2</len>
+      <unit>CO</unit>
+      <description>Ermittle Warmwasserpumpennachlauf </description>
+    </command>
+    <command name="setWWUWPNachlauf" protocmd="setaddr">
+      <addr>6762</addr>
+      <len>2</len>
+      <unit>CO</unit>
+      <description>Setze Warmwasserpumpennachlauf</description>
+    </command>
+
+
+
+To chyba to!
+
+
+    <command name="getPumpeStatusSp" protocmd="getaddr">
+      <addr>0845</addr>
+      <len>1</len>
+      <unit>RT</unit>
+      <description>Ermittle den Status der Speicherladepumpe</description>
+      <device ID="2053"/>
+      <device ID="20CB">
+        <addr>6513</addr>
+        <len>1</len>
+        <unit>RT</unit>
+      </device>
+    </command>
+
+    <command name="getPumpeStatusZirku" protocmd="getaddr">
+      <addr>0846</addr>
+      <len>1</len>
+      <unit>RT</unit>
+      < description >Determine the status of the circulation pump</ description >
+      <device ID="2053" protocmd="getpaddr">
+        <addr>01</addr>
+        <len>1</len>
+        <bit>2</bit>
+        <unit>BST</unit>
+      </device>
+      <device ID="20CB">
+        <addr>6515</addr>
+        <len>1</len>
+        <unit>RT</unit>
+      </device>
+    </command>
+
+       <command name="setPumpeStatusZirku" protocmd="setaddr">
+      <addr>0846</addr>
+      <len>1</len>
+      <unit>RT</unit>
+      < description >Set the status of the circulation pump</ description >
+      <device ID="2053">
+        <addr>01</addr>
+        <len>1</len>
+        <bit>2</bit>
+        <precommand>getPumpeStatusZirku</precommand>
+        <unit>BA</unit>
+      </device>
+    </command>
